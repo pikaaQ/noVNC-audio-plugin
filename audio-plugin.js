@@ -528,4 +528,4 @@ const AudioPlugin = {
     }
 };
 
-window.addEventListener('load', () => setTimeout(() => {AudioPlugin.load()}, 1000);
+window.addEventListener('load', () => setTimeout(() => {AudioPlugin.load()}, 1000));
