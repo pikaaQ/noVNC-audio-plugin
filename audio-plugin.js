@@ -383,7 +383,11 @@ const AudioPlugin = {
         const wsPort = NVUI.getSetting('audio_port');
         const wsPath = NVUI.getSetting('audio_path');
 
-        this.ws = new WebSocket(`${wsSchema}${wsHost}:${wsPort}/${wsPath}`);
+        if(wsHost){
+            this.ws = new WebSocket(`${wsSchema}${wsHost}:${wsPort}/${wsPath}`);
+        }else{
+            this.ws = new WebSocket(`${location.href}/${wsPath}`);
+        }
         this.ws.binaryType = 'arraybuffer';
 
         this.ws.addEventListener('error', async () => {
